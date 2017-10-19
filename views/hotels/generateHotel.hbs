@@ -1,0 +1,26 @@
+<div class="login-page">
+
+  {{#if currentUser.notBlcked}}
+  <div class="form">
+    <form action="/addHotel" method="POST" class="create-form">
+      <input type="text" name='title' placeholder="Title" />
+      <input type="text" name='location' placeholder="Location" />
+      <input type="text" name='image' placeholder="Image Url" />
+
+      <select class='picker' name="type">
+        {{#each cats}}
+      <option value="{{this.catName}}">{{this.catName}}</option>
+        {{/each}}
+      </select>
+      <br>
+      <br>
+      <textarea name="textArea" id="" cols="35" rows="10" placeholder="description"></textarea>
+      <br>
+
+      <button type="submit">create</button>
+    </form>
+  </div>
+  {{else}}
+  <h1>U have no authority here</h1>
+  {{/if}}
+</div>

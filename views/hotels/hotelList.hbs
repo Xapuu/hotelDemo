@@ -1,0 +1,28 @@
+<h1>Hotel List</h1>
+
+<form action="" class="create-form">
+    
+    <input type="text" style="width: 99.2%" name="location" placeholder="Location">
+    <select class='picker' name="type" >
+        {{#each cats}}
+      <option value="{{this.catName}}">{{this.catName}}</option>
+        {{/each}}
+      </select>
+    <br>
+    <button type="submit" value="Search">Search</button>
+</form>
+
+
+{{#each hotels}}
+<a href="/details?id={{this._id}}">
+    <fieldset>
+        <legend>{{this.title}}</legend>
+        <p>{{this.location}}</p>
+        <img class="hotelImg" src="{{this.image}}" alt="hotel image">
+        <p>{{this.description}}</p>
+    </fieldset>
+</a>
+{{/each}}
+
+<a href="/list?page={{pages.prevPage}}"><button>Prev</button></a>
+<a href="/list?page={{pages.nextPage}}"><button>Next</button></a>
